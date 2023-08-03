@@ -144,8 +144,9 @@ function App() {
   }
 
   async function postingList(list) {
-    const url = 'http://localhost:8080/medicaments/import'
-    const spliced = list.splice(0, 50);
+    const url = 'http://localhost:8080/medicaments/importXls'
+    const spliced = list.splice(0, 10);
+    const medicaments = JSON.stringify(list);
 
     fetch(url, {
       method: 'POST',
@@ -153,7 +154,7 @@ function App() {
         "Content-type": "application/json; charset=UTF-8",
         "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify(spliced),
+      body: medicaments
     })
   }
 
@@ -166,7 +167,8 @@ function App() {
         .replaceAll(" ", "_")
         .replaceAll("Í", "I")
         .replaceAll("Ê", "E")
-        .replaceAll("Ó", "O");
+        .replaceAll("Ó", "O")
+        .replaceAll("-", "");
     })
   }
 }
