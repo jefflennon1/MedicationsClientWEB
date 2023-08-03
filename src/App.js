@@ -14,7 +14,9 @@ function App() {
           onChange={handleUploadFile}
         />
 
-        <input type='button' onClick={() => postingList(list)} />
+        <input type='button'
+          value="CLICK TO UPLOAD"
+          onClick={() => postingList(list)} />
 
         {list && (
           list.map(medicamento => (
@@ -66,7 +68,9 @@ function App() {
 
   function generateFormattedList(bruteColunmNames, bruteArray) {
     const finalList = [];
-    const colunms = generateConlunms(bruteColunmNames);
+    const colunmsNotFormated = generateConlunms(bruteColunmNames);
+    const colunms = fomatedColunms(colunmsNotFormated);
+
 
     bruteArray.map(object => {
       const medicamento = generateConlunms(object);
@@ -140,10 +144,29 @@ function App() {
   }
 
   async function postingList(list) {
-    const url = 'localhost:8080/medicaments/import'
+    const url = 'http://localhost:8080/medicaments/import'
+    const spliced = list.splice(0, 50);
+
     fetch(url, {
       method: 'POST',
-      body: JSON.stringify(list),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(spliced),
+    })
+  }
+
+
+  function fomatedColunms(colunmsNotFormated) {
+    return colunmsNotFormated.map(item => {
+      return item
+        .replaceAll("Ã", "A")
+        .replaceAll("Ç", "C")
+        .replaceAll(" ", "_")
+        .replaceAll("Í", "I")
+        .replaceAll("Ê", "E")
+        .replaceAll("Ó", "O");
     })
   }
 }
