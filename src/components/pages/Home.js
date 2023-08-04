@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <>
-            <h1>Hello Word!</h1>
+            <h1>Welcome to my App!</h1>
         </>
     )
 }

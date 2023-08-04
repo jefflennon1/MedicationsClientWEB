@@ -1,0 +1,62 @@
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    text-shadow: 0.5px 0.5px #0f6fb8;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #0f6fb8;
+    text-shadow: 2px 2px #0f6fb8;
+}
+
+.rotate-logo {
+    width: 50px;
+    max-width: 70px;
+    animation: rotate 15s linear infinite;
+    /* Define a animação */
+}
+
+.pill {
+    width: 30px;
+    margin-left: -54px;
+    margin-bottom: 25px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        /* Ângulo inicial de rotação */
+    }
+
+    to {
+        transform: rotate(360deg);
+        /* Ângulo final de rotação (uma volta completa) */
+    }
+}

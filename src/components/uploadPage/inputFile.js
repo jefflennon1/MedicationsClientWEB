@@ -1,23 +1,47 @@
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState } from 'react';
-import { ButtonUpload } from './buttonUpload'
+import { ButtonUpload } from './buttonUpload';
+import './styles/inputfile.css';
+import { PacmanLoader } from 'react-spinners';
+import { loadingContainerStyle as spinnerStyle } from './styles/spinner';
+
 
 export function InputFile() {
     const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(false);
+
 
     return (
         <>
-            <input type='file' onChange={handleUploadFile} />
-            {list.length > 0 && (
+            <div css={spinnerStyle} className='loading'>
+                <PacmanLoader color="#0f6fb8" loading={loading} size={30} placeholder='Loading' />
+
+            </div>
+
+            {!loading && (
+                <>
+                    <label htmlFor="fileInput" className="custom-file-upload">
+                        Choose File
+                    </label>
+                    <input type='file' onChange={handleUploadFile} id="fileInput" />
+                </>
+            )}
+
+            {list.length > 0 && !loading && (
                 <>
                     <p>FILE LOADED SUCCESSFULY!</p>
                     <ButtonUpload />
                 </>
-            )}
+            )
+            }
         </>
     )
 
+
     function handleUploadFile(event) {
+        event.preventDefault();
+        setLoading(true);
+
         if (event.target.files) {
             var list;
             const file = event.target.files[0];
@@ -39,15 +63,17 @@ export function InputFile() {
                     var colunmNames = rowObject.shift(); // get colunm names
 
                     list = generateFormattedList(colunmNames, rowObject);
-
                 })
 
                 if (list) {
                     setList(list);
+                    setLoading(false)
                 }
             };
             fileReader.readAsArrayBuffer(file);
         }
+
+
     }
     function generateFormattedList(bruteColunmNames, bruteArray) {
         const finalList = [];
@@ -128,14 +154,17 @@ export function InputFile() {
 
     function fomatedColunms(colunmsNotFormated) {
         return colunmsNotFormated.map(item => {
-            return item
-                .replaceAll("Ã", "A")
-                .replaceAll("Ç", "C")
-                .replaceAll(" ", "_")
-                .replaceAll("Í", "I")
-                .replaceAll("Ê", "E")
-                .replaceAll("Ó", "O")
-                .replaceAll("-", "");
+            if (item)
+                return item
+                    .replaceAll("Ã", "A")
+                    .replaceAll("Ç", "C")
+                    .replaceAll(" ", "_")
+                    .replaceAll("Í", "I")
+                    .replaceAll("Ê", "E")
+                    .replaceAll("Ó", "O")
+                    .replaceAll("-", "");
         })
     }
+
+
 }
