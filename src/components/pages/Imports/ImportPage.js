@@ -1,6 +1,6 @@
 import React from "react";
 
-import { InputFile } from '../uploadPage/inputFile';
+import { InputFile } from '../../Inputs/inputFile';
 
 export default function ImportFilePage() {
     return (

@@ -1,5 +1,5 @@
-import './styles/Footer.css';
-import { email, github, linkedin, whatsapp } from '././styles/my-links/my-links';
+import './Footer.css';
+import { email, github, linkedin, whatsapp } from '../../utils/targets';
 
 export function Footer() {
     return (

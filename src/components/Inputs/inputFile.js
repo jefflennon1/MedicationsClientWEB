@@ -1,9 +1,9 @@
+import './inputfile.css';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState } from 'react';
-import { ButtonUpload } from './buttonUpload';
-import './styles/inputfile.css';
+import { ButtonUpload } from '../Buttons/buttonUpload';
 import { PacmanLoader } from 'react-spinners';
-import { loadingContainerStyle as spinnerStyle } from './styles/spinner';
+import { loadingContainerStyle as spinnerStyle } from '../Spinners/spinner';
 
 
 export function InputFile() {
