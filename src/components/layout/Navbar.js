@@ -12,13 +12,14 @@ export default function Navbar() {
                 </Link>
                 <ul className="nav-links">
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/user">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/imports">Imports</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </Link>
                     </li>
                 </ul>
             </nav>

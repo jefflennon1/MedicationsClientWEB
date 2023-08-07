@@ -10,18 +10,18 @@ div#root {
 
 img.bounce-in-top {
     width: 30%;
-    margin-top: -15%;
+    /* margin-top: -15%;*/
 }
 
 .fixed {
-    position: absolute;
+    /* position: absolute;*/
     width: 100%;
 }
 
 .containerTomada {
     display: flex;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;
+    height: 80%;*/
     align-items: center;
     justify-content: center;
     flex-direction: column;

@@ -11,7 +11,7 @@ export function NotFoundPage() {
                 <img src={image} className='bounce-in-top' />
                 <h1 className='focus-in-expand' >Page requested was not found</h1>
             </div>
-            <div className='fixed'><Footer /></div>
+            <Footer />
         </>
     )
 }
