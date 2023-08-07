@@ -1,6 +1,6 @@
 import './Error.css';
 import image from '../../../assets/not-found.png';
-import Navbar from '../../Navbars/Navbar';
+import Navbar from '../../Navbar/Navbar';
 import { Footer } from '../../Footer/Footer';
 
 export function NotFoundPage() {

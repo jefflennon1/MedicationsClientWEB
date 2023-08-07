@@ -13,12 +13,12 @@ export default function Navbar() {
                 <ul className="nav-links">
                     <li>
                         <Link to="/user">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i className="fa fa-user-o" aria-hidden="true"></i>
                         </Link>
                     </li>
                     <li>
                         <Link to="/">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <i className="fa fa-sign-out" aria-hidden="true"></i>
                         </Link>
                     </li>
                 </ul>
