@@ -2,7 +2,7 @@ import './inputfile.css';
 import * as XLSX from 'xlsx/xlsx.mjs';
 import { useState } from 'react';
 import { ButtonUpload } from '../Buttons/buttonUpload';
-import { PacmanLoader } from 'react-spinners';
+import { FadeLoader } from 'react-spinners';
 import { loadingContainerStyle as spinnerStyle } from '../Spinners/spinner';
 
 
@@ -14,8 +14,7 @@ export function InputFile() {
     return (
         <>
             <div css={spinnerStyle} className='loading'>
-                <PacmanLoader color="#0f6fb8" loading={loading} size={30} placeholder='Loading' />
-
+                <FadeLoader color="#0f6fb8" loading={loading} size={30} placeholder='Loading' margin={10} />
             </div>
 
             {!loading && (
