@@ -29,7 +29,7 @@ export function InputFile() {
             {list.length > 0 && !loading && (
                 <>
                     <p>FILE LOADED SUCCESSFULY!</p>
-                    <ButtonUpload />
+                    <ButtonUpload list={list} />
                 </>
             )
             }
